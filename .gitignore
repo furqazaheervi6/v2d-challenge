@@ -1,0 +1,34 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# Local V2D artifacts
+v2d-challenge/
+datasets/
+downloads/
+submission-kit/
+repos/
+.cache/
+results/
+outputs/
+checkpoints/
+submissions/
+*.parquet
+*.zip
+*.glb
+*.mp4
+*.safetensors
+*.pt
+*.onnx
+
+# Kaggle and secrets
+kaggle.json
+.env
+*.key
+*.pem
+
+# macOS/editor
+.DS_Store
+.vscode/
+.idea/
