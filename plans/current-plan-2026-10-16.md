@@ -1,10 +1,17 @@
-# V2D Challenge current plan
+# V2D Challenge current plan: Track 1 only
 
 Updated: 2026-10-16, Vancouver time
 
-## What changed since the old plan
+## Assumptions
 
-The previous plan is outdated. It assumed the first work was downloading, watching the kickoff, and trying the baseline locally or in Colab. That is no longer the right framing.
+- Pursue **Track 1: 4D human and object reconstruction**.
+- Assume **no GPU access / GPU token / GPU credits** for the main path.
+- Do **not** pursue Track 2 or Track 3 unless this assumption changes.
+- Treat the old Track 3/FlashCHORD plan as historical setup context only.
+
+## Why the plan changed
+
+The Oct 7 plan was about downloading the kit/dataset and testing Track 3/FlashCHORD. That is outdated.
 
 Already done:
 
@@ -12,188 +19,212 @@ Already done:
 - Full Hugging Face dataset pulled locally.
 - Submission-kit Python environment created.
 - NVIDIA `video_to_data` runtime cloned at the kit-pinned commit.
-- Track 3 local preflight ran with Kaggle checks skipped.
 - Public GitHub repo created: https://github.com/furqazaheervi6/v2d-challenge
+- Local Track 1 preflight passes when Kaggle checks are skipped.
 
 Current blockers:
 
-- Kaggle API token and competition rule acceptance are not confirmed.
-- No working NVIDIA GPU environment is confirmed.
-- Local Mac cannot run the official full baseline because it has no `docker` and no `nvidia-smi`.
-- Colab should no longer be treated as the default plan. Official docs expect Linux, Docker, NVIDIA Container Toolkit, Git LFS, and a large NVIDIA GPU for FlashCHORD/full training.
+- Kaggle API token and Track 1 rule acceptance are not confirmed.
+- No actual Track 1 reconstruction outputs exist yet.
+- A valid Track 1 submission needs packable per-episode `.npz` files plus object mesh files.
 
 Official deadline:
 
-- Leaderboard freeze: 2026-11-04 at 5:00 PM EST, which is 2:00 PM Vancouver time on 2026-11-04.
-- Today, 2026-10-16, leaves 19 calendar days.
+- Leaderboard freeze: **2026-11-04 at 5:00 PM EST**, which is **2:00 PM Vancouver time**.
+- On 2026-10-16, there are 19 calendar days left.
 
-## Current strategic decision
+## Track 1 requirements
 
-The goal is no longer “explore V2D.” The goal is:
+Track 1 submits **one Parquet file** to five metric competitions:
 
-> Get one honest, reproducible, valid V2D submission or, if compute prevents that, a public technical reproduction/report that clearly documents setup, blockers, and a bounded attempted baseline.
+- CD-H
+- CD-O
+- ACC-H
+- ACC-O
+- PEN
 
-Recommended route:
+The submission kit expects a directory like:
 
-1. **Primary route for signal:** Track 3 only if a 48 GB NVIDIA GPU environment is secured within 24 hours.
-2. **Fallback route for feasibility:** Track 1 if Track 3 compute is not available quickly.
-3. **Do not split effort across tracks** unless a first valid submission already exists.
+```text
+track1_episodes/
+  episode_000000.npz
+  episode_000000_object.glb
+  episode_000001.npz
+  episode_000001_object.glb
+  ...
+```
 
-Why:
+Each `episode_XXXXXX.npz` must contain:
 
-- Track 3 is the strongest NVIDIA Isaac signal, but official FlashCHORD training wants Linux + Docker + NVIDIA Container Toolkit + a 48 GiB GPU with at least 46,000 MiB free.
-- Track 2 is too heavy because it has three tiers and policy learning requirements.
-- Track 1 is the least policy-training-heavy fallback, but it still needs real reconstruction outputs. Treat it as a fallback, not a guaranteed easy path.
+```text
+pose                 [T, 136]
+scales               [68]
+shape                [45]
+object_rotation      [T, 3, 3]
+object_translation   [T, 3]
+object_scale         scalar > 0
+```
 
-## Non-negotiable first gate: Oct 16-17
+The object mesh can be `.glb`, `.obj`, `.ply`, `.stl`, or `.off`.
 
-By the end of 2026-10-17, decide whether Track 3 is alive.
+Packing command:
 
-### Gate A: Kaggle readiness
+```bash
+cd v2d-challenge/submission-kit/v2d_submission_kit
+COMMIT_URL="https://github.com/furqazaheervi6/v2d-challenge/commit/<sha>"
+../../.venv/bin/python eval_reconstruction.py \
+  --episodes /path/to/track1_episodes \
+  --sample data/track_1_sample_submission.parquet \
+  --commit "$COMMIT_URL" \
+  --out track1.parquet
+```
 
-- Create or confirm Kaggle account.
-- Generate `kaggle.json` API token.
-- Store it securely, not in Git.
-- Accept rules for the chosen track's metric competitions.
-- Run submission-kit preflight without `--skip-kaggle`.
+Upload command, after Kaggle is configured and rules are accepted:
 
-### Gate B: compute readiness
+```bash
+../../.venv/bin/python submit/v2d_submit.py track1.parquet \
+  --track track_1 \
+  -m "Track 1 reconstruction" \
+  --wait
+```
 
-Track 3 continues only if one of these is true:
+## Strategy
 
-- A cloud machine with A6000/L40/L40S-class GPU is ready, or
-- Another Linux NVIDIA GPU box with Docker + NVIDIA Container Toolkit is ready.
+Goal:
 
-If this is not ready by Oct 17 night, pivot to Track 1 or reduce the deliverable to a reproducible setup/report.
+> Get one honest, reproducible Track 1 submission, even if weak, then improve exactly one thing.
+
+Do not chase Track 3 or full FlashCHORD. Do not split tracks. Do not spend time on a cloud GPU path unless it directly helps Track 1 reconstruction.
+
+### Practical target
+
+1. **First valid submission:** produce packable Track 1 outputs for all scored episodes.
+2. **One improvement lane:** choose one of smoothing, object pose stability, object mesh quality, or MHR pose plausibility.
+3. **Technical report:** document method, limitations, commands, and exact commit URL.
 
 ## Updated schedule
 
 ### Oct 16, Thu, today
 
-Goal: remove account and planning uncertainty.
+Goal: remove account and schema uncertainty.
 
-- Confirm Kaggle account and API token.
-- Accept competition rules for the chosen track.
-- Watch/replay the V2D webinar only for missing practical details, not as a research rabbit hole.
-- Update GitHub README with the current plan.
-- Pick the compute route.
+- Confirm/create Kaggle account.
+- Generate Kaggle API token.
+- Accept rules for all five Track 1 metric competitions.
+- Run preflight without `--skip-kaggle`.
+- Inspect Track 1 sample rows and scored episode list.
+- Create `track1_episodes/` working folder outside Git.
 
 Exit condition:
 
-- Kaggle token exists, competitions accepted, and compute decision made.
+- Kaggle works locally, and the exact required episodes are listed.
 
 ### Oct 17-18
 
-Goal: first executable baseline smoke test.
+Goal: format-valid baseline artifact.
 
-If Track 3 compute is available:
-
-- Start cloud GPU box.
-- Clone `nvidia-isaac/video_to_data`.
-- Checkout the submission-kit-pinned commit.
-- Install Git LFS and pull assets.
-- Build/start FlashCHORD container.
-- Run one minimal replay or one-world evaluation before any training.
-
-If Track 3 compute is not available:
-
-- Pivot to Track 1.
-- Inspect Track 1 sample rows and expected reconstruction file schema.
-- Identify the smallest method that can produce packable outputs.
-- Document exactly what is and is not feasible on local Mac.
+- Write a generator that creates complete Track 1 `.npz` files and non-degenerate object meshes for all required episodes.
+- Use neutral/constant poses only as a format baseline, not as a claimed reconstruction.
+- Pack with `eval_reconstruction.py`.
+- Fix every local validation/packing error.
 
 Exit condition:
 
-- A command has run in the target runtime, or the pivot decision is recorded.
+- `track1.parquet` is produced locally from code in the GitHub repo.
 
-### Oct 19-21
-
-Goal: first packable artifact.
-
-- Produce one complete set of outputs for the chosen track, even if weak.
-- Run local packing/preflight.
-- Fix format/schema errors before model-quality errors.
-- Commit code that generated the artifact.
-
-Exit condition:
-
-- A packed artifact exists locally, or a written blocker states exactly which required output is missing.
-
-### Oct 22-24
+### Oct 19-20
 
 Goal: first Kaggle submission.
 
-- Upload the first valid artifact.
-- Save Kaggle receipt and scores.
-- Update `submissions.md` with method, commit SHA, timestamp, score, and lesson.
-- If invalid, fix only the validation error first.
+- Commit the generator code.
+- Use the real GitHub `/commit/<sha>` URL in the packed file.
+- Upload to Track 1.
+- Save receipt, score/status, and any failure message in `submissions.md`.
 
 Exit condition:
 
-- One valid submission, or a precise invalid-submission error with a fix plan.
+- One Track 1 Kaggle submission is accepted, or the exact rejection reason is logged.
 
-### Oct 25-30
+### Oct 21-25
 
-Goal: one bounded improvement.
+Goal: replace dummy/neutral parts with the smallest real reconstruction improvement.
 
-Do exactly one improvement lane:
+Pick **one** improvement lane:
 
-- smoothing / temporal consistency,
-- contact/penetration cleanup,
-- pose/trajectory filtering,
-- object mesh quality cleanup,
-- or input preprocessing.
+- extract object motion from video with a simple CV/pose proxy,
+- smooth object translation/rotation,
+- improve object mesh from primitive to closer geometry,
+- improve MHR pose plausibility,
+- reduce hand-object penetration.
 
-Do not start a new architecture unless the baseline is already valid.
+Do not start a full reconstruction architecture. The aim is one bounded improvement over the first artifact.
 
 Exit condition:
 
-- Submit improved artifact or decide the baseline is the final artifact.
+- Improved `track1.parquet` packed and submitted, or blocker documented.
+
+### Oct 26-30
+
+Goal: iterate once, not endlessly.
+
+- Compare leaderboard metrics.
+- Improve only the weakest metric if the feedback is clear.
+- Update technical report.
+- Keep submissions within weekly cap.
+
+Exit condition:
+
+- Best current artifact identified.
 
 ### Oct 31-Nov 3
 
-Goal: finalization.
+Goal: final polish.
 
 - Use unlimited final-three-days submissions for controlled variants only.
-- Freeze best artifact.
-- Write short technical report.
-- Make sure GitHub repo has clean reproduction instructions and the exact commit URL used.
+- Freeze the best submission.
+- Finish technical report.
+- Ensure README explains exactly what was attempted and what is not claimed.
 
 ### Nov 4 before 2 PM Vancouver
 
 Goal: final submission.
 
-- Submit final artifact.
-- Confirm score/receipt.
-- Save all evidence.
-- Update README and technical report.
+- Submit final Track 1 artifact.
+- Save receipt and score/status.
+- Update GitHub repo and local notes.
 
-## Repo structure to add next
+## Immediate next commands
 
-In `furqazaheervi6/v2d-challenge`, add:
+### Track 1 preflight, with Kaggle skipped
 
-```text
-plans/current-plan-2026-10-16.md
-submissions.md
-reports/technical-report.md
-scripts/preflight_track1.sh
-scripts/preflight_track3.sh
+```bash
+cd v2d-challenge/submission-kit/v2d_submission_kit
+../../.venv/bin/python tools/preflight.py \
+  --track track_1 \
+  --dataset-root ../../datasets/video_to_data_challenge \
+  --skip-kaggle
 ```
 
-Keep out of Git:
+### Track 1 preflight, after Kaggle token/rules
 
-- datasets,
-- submission artifacts,
-- Kaggle token,
-- checkpoints,
-- videos,
-- generated meshes,
-- cloud credentials.
+```bash
+cd v2d-challenge/submission-kit/v2d_submission_kit
+../../.venv/bin/python tools/preflight.py \
+  --track track_1 \
+  --dataset-root ../../datasets/video_to_data_challenge
+```
 
-## Current source links checked
+## What not to do
 
-- Official challenge page: https://nvidia-isaac.github.io/video_to_data/v2d_challenge/
-- Official dataset: https://huggingface.co/datasets/nvidia/video_to_data_challenge
-- Official runtime repo: https://github.com/nvidia-isaac/video_to_data
-- FlashCHORD README: https://github.com/nvidia-isaac/video_to_data/blob/main/robotic_grounding/flash_chord/README.md
-- Existing public repo: https://github.com/furqazaheervi6/v2d-challenge
+- Do not spend time on Track 3 unless GPU access suddenly appears.
+- Do not use Colab as the main plan.
+- Do not claim “reconstruction solved” if the first artifact uses neutral or placeholder geometry.
+- Do not upload secrets or Kaggle token to GitHub.
+- Do not submit random changes in the final unlimited window.
+
+## Source files checked locally
+
+- `v2d-challenge/submission-kit/v2d_submission_kit/tracks/track_1/README.md`
+- `v2d-challenge/submission-kit/v2d_submission_kit/tools/pack_reconstruction.py`
+- `v2d-challenge/submission-kit/v2d_submission_kit/eval_reconstruction.py`
+- `v2d-challenge/submission-kit/v2d_submission_kit/data/track_1_sample_submission.parquet`
