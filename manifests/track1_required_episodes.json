@@ -1,0 +1,618 @@
+{
+  "source": "submission-kit/v2d_submission_kit/data/track_1_sample_submission.parquet",
+  "total_rows": 740780,
+  "episode_count": 30,
+  "array_order": [
+    "mhr_pose",
+    "mhr_scales",
+    "mhr_shape",
+    "object_rotation",
+    "object_translation",
+    "object_scale",
+    "object_mesh_vertices",
+    "object_mesh_faces"
+  ],
+  "episode_frame_sentinel": 999999,
+  "episodes": [
+    {
+      "episode": 0,
+      "episode_file": "episode_000000.npz",
+      "object_mesh_stem": "episode_000000_object",
+      "scored_frame_count": 169,
+      "first_scored_frame": 90,
+      "last_scored_frame": 699,
+      "max_required_T": 700,
+      "row_count": 16681,
+      "array_row_counts": {
+        "mhr_pose": 7774,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 507,
+        "object_scale": 1,
+        "object_translation": 169
+      }
+    },
+    {
+      "episode": 1,
+      "episode_file": "episode_000001.npz",
+      "object_mesh_stem": "episode_000001_object",
+      "scored_frame_count": 174,
+      "first_scored_frame": 151,
+      "last_scored_frame": 461,
+      "max_required_T": 462,
+      "row_count": 16931,
+      "array_row_counts": {
+        "mhr_pose": 8004,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 522,
+        "object_scale": 1,
+        "object_translation": 174
+      }
+    },
+    {
+      "episode": 2,
+      "episode_file": "episode_000002.npz",
+      "object_mesh_stem": "episode_000002_object",
+      "scored_frame_count": 84,
+      "first_scored_frame": 236,
+      "last_scored_frame": 786,
+      "max_required_T": 787,
+      "row_count": 12431,
+      "array_row_counts": {
+        "mhr_pose": 3864,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 252,
+        "object_scale": 1,
+        "object_translation": 84
+      }
+    },
+    {
+      "episode": 3,
+      "episode_file": "episode_000003.npz",
+      "object_mesh_stem": "episode_000003_object",
+      "scored_frame_count": 340,
+      "first_scored_frame": 90,
+      "last_scored_frame": 501,
+      "max_required_T": 502,
+      "row_count": 25231,
+      "array_row_counts": {
+        "mhr_pose": 15640,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 1020,
+        "object_scale": 1,
+        "object_translation": 340
+      }
+    },
+    {
+      "episode": 4,
+      "episode_file": "episode_000004.npz",
+      "object_mesh_stem": "episode_000004_object",
+      "scored_frame_count": 519,
+      "first_scored_frame": 125,
+      "last_scored_frame": 649,
+      "max_required_T": 650,
+      "row_count": 34181,
+      "array_row_counts": {
+        "mhr_pose": 23874,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 1557,
+        "object_scale": 1,
+        "object_translation": 519
+      }
+    },
+    {
+      "episode": 5,
+      "episode_file": "episode_000005.npz",
+      "object_mesh_stem": "episode_000005_object",
+      "scored_frame_count": 412,
+      "first_scored_frame": 90,
+      "last_scored_frame": 577,
+      "max_required_T": 578,
+      "row_count": 28831,
+      "array_row_counts": {
+        "mhr_pose": 18952,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 1236,
+        "object_scale": 1,
+        "object_translation": 412
+      }
+    },
+    {
+      "episode": 6,
+      "episode_file": "episode_000006.npz",
+      "object_mesh_stem": "episode_000006_object",
+      "scored_frame_count": 636,
+      "first_scored_frame": 90,
+      "last_scored_frame": 725,
+      "max_required_T": 726,
+      "row_count": 40031,
+      "array_row_counts": {
+        "mhr_pose": 29256,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 1908,
+        "object_scale": 1,
+        "object_translation": 636
+      }
+    },
+    {
+      "episode": 7,
+      "episode_file": "episode_000007.npz",
+      "object_mesh_stem": "episode_000007_object",
+      "scored_frame_count": 597,
+      "first_scored_frame": 90,
+      "last_scored_frame": 686,
+      "max_required_T": 687,
+      "row_count": 38081,
+      "array_row_counts": {
+        "mhr_pose": 27462,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 1791,
+        "object_scale": 1,
+        "object_translation": 597
+      }
+    },
+    {
+      "episode": 8,
+      "episode_file": "episode_000008.npz",
+      "object_mesh_stem": "episode_000008_object",
+      "scored_frame_count": 454,
+      "first_scored_frame": 90,
+      "last_scored_frame": 543,
+      "max_required_T": 544,
+      "row_count": 30931,
+      "array_row_counts": {
+        "mhr_pose": 20884,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 1362,
+        "object_scale": 1,
+        "object_translation": 454
+      }
+    },
+    {
+      "episode": 9,
+      "episode_file": "episode_000009.npz",
+      "object_mesh_stem": "episode_000009_object",
+      "scored_frame_count": 325,
+      "first_scored_frame": 90,
+      "last_scored_frame": 414,
+      "max_required_T": 415,
+      "row_count": 24481,
+      "array_row_counts": {
+        "mhr_pose": 14950,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 975,
+        "object_scale": 1,
+        "object_translation": 325
+      }
+    },
+    {
+      "episode": 10,
+      "episode_file": "episode_000010.npz",
+      "object_mesh_stem": "episode_000010_object",
+      "scored_frame_count": 418,
+      "first_scored_frame": 90,
+      "last_scored_frame": 507,
+      "max_required_T": 508,
+      "row_count": 29131,
+      "array_row_counts": {
+        "mhr_pose": 19228,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 1254,
+        "object_scale": 1,
+        "object_translation": 418
+      }
+    },
+    {
+      "episode": 11,
+      "episode_file": "episode_000011.npz",
+      "object_mesh_stem": "episode_000011_object",
+      "scored_frame_count": 803,
+      "first_scored_frame": 0,
+      "last_scored_frame": 802,
+      "max_required_T": 803,
+      "row_count": 48381,
+      "array_row_counts": {
+        "mhr_pose": 36938,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 2409,
+        "object_scale": 1,
+        "object_translation": 803
+      }
+    },
+    {
+      "episode": 12,
+      "episode_file": "episode_000012.npz",
+      "object_mesh_stem": "episode_000012_object",
+      "scored_frame_count": 209,
+      "first_scored_frame": 69,
+      "last_scored_frame": 365,
+      "max_required_T": 366,
+      "row_count": 18681,
+      "array_row_counts": {
+        "mhr_pose": 9614,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 627,
+        "object_scale": 1,
+        "object_translation": 209
+      }
+    },
+    {
+      "episode": 13,
+      "episode_file": "episode_000013.npz",
+      "object_mesh_stem": "episode_000013_object",
+      "scored_frame_count": 106,
+      "first_scored_frame": 75,
+      "last_scored_frame": 370,
+      "max_required_T": 371,
+      "row_count": 13531,
+      "array_row_counts": {
+        "mhr_pose": 4876,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 318,
+        "object_scale": 1,
+        "object_translation": 106
+      }
+    },
+    {
+      "episode": 14,
+      "episode_file": "episode_000014.npz",
+      "object_mesh_stem": "episode_000014_object",
+      "scored_frame_count": 83,
+      "first_scored_frame": 90,
+      "last_scored_frame": 387,
+      "max_required_T": 388,
+      "row_count": 12381,
+      "array_row_counts": {
+        "mhr_pose": 3818,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 249,
+        "object_scale": 1,
+        "object_translation": 83
+      }
+    },
+    {
+      "episode": 15,
+      "episode_file": "episode_000015.npz",
+      "object_mesh_stem": "episode_000015_object",
+      "scored_frame_count": 356,
+      "first_scored_frame": 81,
+      "last_scored_frame": 436,
+      "max_required_T": 437,
+      "row_count": 26031,
+      "array_row_counts": {
+        "mhr_pose": 16376,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 1068,
+        "object_scale": 1,
+        "object_translation": 356
+      }
+    },
+    {
+      "episode": 16,
+      "episode_file": "episode_000016.npz",
+      "object_mesh_stem": "episode_000016_object",
+      "scored_frame_count": 240,
+      "first_scored_frame": 50,
+      "last_scored_frame": 289,
+      "max_required_T": 290,
+      "row_count": 20231,
+      "array_row_counts": {
+        "mhr_pose": 11040,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 720,
+        "object_scale": 1,
+        "object_translation": 240
+      }
+    },
+    {
+      "episode": 17,
+      "episode_file": "episode_000017.npz",
+      "object_mesh_stem": "episode_000017_object",
+      "scored_frame_count": 277,
+      "first_scored_frame": 75,
+      "last_scored_frame": 351,
+      "max_required_T": 352,
+      "row_count": 22081,
+      "array_row_counts": {
+        "mhr_pose": 12742,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 831,
+        "object_scale": 1,
+        "object_translation": 277
+      }
+    },
+    {
+      "episode": 18,
+      "episode_file": "episode_000018.npz",
+      "object_mesh_stem": "episode_000018_object",
+      "scored_frame_count": 420,
+      "first_scored_frame": 72,
+      "last_scored_frame": 491,
+      "max_required_T": 492,
+      "row_count": 29231,
+      "array_row_counts": {
+        "mhr_pose": 19320,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 1260,
+        "object_scale": 1,
+        "object_translation": 420
+      }
+    },
+    {
+      "episode": 19,
+      "episode_file": "episode_000019.npz",
+      "object_mesh_stem": "episode_000019_object",
+      "scored_frame_count": 283,
+      "first_scored_frame": 90,
+      "last_scored_frame": 372,
+      "max_required_T": 373,
+      "row_count": 22381,
+      "array_row_counts": {
+        "mhr_pose": 13018,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 849,
+        "object_scale": 1,
+        "object_translation": 283
+      }
+    },
+    {
+      "episode": 20,
+      "episode_file": "episode_000020.npz",
+      "object_mesh_stem": "episode_000020_object",
+      "scored_frame_count": 375,
+      "first_scored_frame": 90,
+      "last_scored_frame": 483,
+      "max_required_T": 484,
+      "row_count": 26981,
+      "array_row_counts": {
+        "mhr_pose": 17250,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 1125,
+        "object_scale": 1,
+        "object_translation": 375
+      }
+    },
+    {
+      "episode": 21,
+      "episode_file": "episode_000021.npz",
+      "object_mesh_stem": "episode_000021_object",
+      "scored_frame_count": 347,
+      "first_scored_frame": 90,
+      "last_scored_frame": 436,
+      "max_required_T": 437,
+      "row_count": 25581,
+      "array_row_counts": {
+        "mhr_pose": 15962,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 1041,
+        "object_scale": 1,
+        "object_translation": 347
+      }
+    },
+    {
+      "episode": 22,
+      "episode_file": "episode_000022.npz",
+      "object_mesh_stem": "episode_000022_object",
+      "scored_frame_count": 452,
+      "first_scored_frame": 18,
+      "last_scored_frame": 469,
+      "max_required_T": 470,
+      "row_count": 30831,
+      "array_row_counts": {
+        "mhr_pose": 20792,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 1356,
+        "object_scale": 1,
+        "object_translation": 452
+      }
+    },
+    {
+      "episode": 23,
+      "episode_file": "episode_000023.npz",
+      "object_mesh_stem": "episode_000023_object",
+      "scored_frame_count": 399,
+      "first_scored_frame": 90,
+      "last_scored_frame": 488,
+      "max_required_T": 489,
+      "row_count": 28181,
+      "array_row_counts": {
+        "mhr_pose": 18354,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 1197,
+        "object_scale": 1,
+        "object_translation": 399
+      }
+    },
+    {
+      "episode": 24,
+      "episode_file": "episode_000024.npz",
+      "object_mesh_stem": "episode_000024_object",
+      "scored_frame_count": 242,
+      "first_scored_frame": 61,
+      "last_scored_frame": 302,
+      "max_required_T": 303,
+      "row_count": 20331,
+      "array_row_counts": {
+        "mhr_pose": 11132,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 726,
+        "object_scale": 1,
+        "object_translation": 242
+      }
+    },
+    {
+      "episode": 25,
+      "episode_file": "episode_000025.npz",
+      "object_mesh_stem": "episode_000025_object",
+      "scored_frame_count": 219,
+      "first_scored_frame": 90,
+      "last_scored_frame": 308,
+      "max_required_T": 309,
+      "row_count": 19181,
+      "array_row_counts": {
+        "mhr_pose": 10074,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 657,
+        "object_scale": 1,
+        "object_translation": 219
+      }
+    },
+    {
+      "episode": 26,
+      "episode_file": "episode_000026.npz",
+      "object_mesh_stem": "episode_000026_object",
+      "scored_frame_count": 281,
+      "first_scored_frame": 85,
+      "last_scored_frame": 365,
+      "max_required_T": 366,
+      "row_count": 22281,
+      "array_row_counts": {
+        "mhr_pose": 12926,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 843,
+        "object_scale": 1,
+        "object_translation": 281
+      }
+    },
+    {
+      "episode": 27,
+      "episode_file": "episode_000027.npz",
+      "object_mesh_stem": "episode_000027_object",
+      "scored_frame_count": 243,
+      "first_scored_frame": 84,
+      "last_scored_frame": 326,
+      "max_required_T": 327,
+      "row_count": 20381,
+      "array_row_counts": {
+        "mhr_pose": 11178,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 729,
+        "object_scale": 1,
+        "object_translation": 243
+      }
+    },
+    {
+      "episode": 28,
+      "episode_file": "episode_000028.npz",
+      "object_mesh_stem": "episode_000028_object",
+      "scored_frame_count": 147,
+      "first_scored_frame": 90,
+      "last_scored_frame": 236,
+      "max_required_T": 237,
+      "row_count": 15581,
+      "array_row_counts": {
+        "mhr_pose": 6762,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 441,
+        "object_scale": 1,
+        "object_translation": 147
+      }
+    },
+    {
+      "episode": 29,
+      "episode_file": "episode_000029.npz",
+      "object_mesh_stem": "episode_000029_object",
+      "scored_frame_count": 267,
+      "first_scored_frame": 38,
+      "last_scored_frame": 304,
+      "max_required_T": 305,
+      "row_count": 21581,
+      "array_row_counts": {
+        "mhr_pose": 12282,
+        "mhr_scales": 23,
+        "mhr_shape": 15,
+        "object_mesh_faces": 4096,
+        "object_mesh_vertices": 4096,
+        "object_rotation": 801,
+        "object_scale": 1,
+        "object_translation": 267
+      }
+    }
+  ]
+}

@@ -32,3 +32,6 @@ kaggle.json
 .DS_Store
 .vscode/
 .idea/
+generated/track1_format_baseline/
+generated/*.parquet
+generated/*.json
